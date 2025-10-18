@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Pervez Hasan</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #111111;
+            color: #a9a9a9;
+            overflow-x: hidden;
+            /* Prevent horizontal scrollbar from animation */
+        }
+
+        .gradient-bg {
+            background-image: linear-gradient(135deg, rgba(34, 34, 34, 1) 0%, rgba(17, 17, 17, 1) 50%, rgba(45, 20, 69, 0.5) 100%);
+        }
+
+        .hero-gradient-bg {
+            background: radial-gradient(circle at top right, rgba(128, 0, 128, 0.2), transparent 40%), radial-gradient(circle at bottom left, rgba(128, 0, 128, 0.1), transparent 50%), #111;
+        }
+
+        .btn-primary {
+            background-color: #8338ec;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #7229d6;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(131, 56, 236, 0.2);
+        }
+
+        .nav-link-item.active {
+            background-color: #8338ec;
+            color: white;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #ffffff;
+        }
+
+        #scrollTopBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #8338ec;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1000;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+
+        /* --- Scroll Animation Styles --- */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .scroll-animate-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .scroll-animate.visible,
+        .scroll-animate-left.visible {
+            opacity: 1;
+            transform: translateY(0) translateX(0);
+        }
+
+        /* Staggered delay classes */
+        .delay-100 {
+            transition-delay: 0.1s;
+        }
+
+        .delay-200 {
+            transition-delay: 0.2s;
+        }
+
+        .delay-300 {
+            transition-delay: 0.3s;
+        }
+
+        .delay-400 {
+            transition-delay: 0.4s;
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <header id="header" class="bg-black/30 backdrop-blur-lg fixed w-full top-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-white flex items-center">
+                <span
+                    class="bg-purple-600 text-white rounded-full h-10 w-10 flex items-center justify-center mr-3 font-extrabold">P</span>
+                Pervez
+            </a>
+            <nav class="hidden lg:flex space-x-1 items-center bg-gray-800/50 p-2 rounded-full">
+                <a href="index.html#home" class="nav-link-item px-4 py-2 text-white rounded-full">Home</a>
+                <a href="index.html#about" class="nav-link-item px-4 py-2 text-white rounded-full">About</a>
+                <a href="index.html#portfolio" class="nav-link-item px-4 py-2 text-white rounded-full">Portfolio</a>
+                <a href="index.html#courses" class="nav-link-item px-4 py-2 text-white rounded-full">Courses</a>
+                <a href="#blog" class="nav-link-item px-4 py-2 text-white rounded-full active">Blog</a>
+                <a href="index.html#youtube" class="nav-link-item px-4 py-2 text-white rounded-full">YouTube</a>
+                <a href="index.html#contact" class="nav-link-item px-4 py-2 text-white rounded-full btn-primary">Contact</a>
+            </nav>
+            <button id="mobile-menu-btn" class="lg:hidden text-white text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden lg:hidden bg-gray-900">
+            <a href="index.html#home" class="block py-3 px-6 text-white hover:bg-gray-800">Home</a>
+            <a href="index.html#about" class="block py-3 px-6 text-white hover:bg-gray-800">About</a>
+            <a href="index.html#portfolio" class="block py-3 px-6 text-white hover:bg-gray-800">Portfolio</a>
+            <a href="index.html#courses" class="block py-3 px-6 text-white hover:bg-gray-800">Courses</a>
+            <a href="#blog" class="block py-3 px-6 text-white bg-gray-800">Blog</a>
+            <a href="index.html#youtube" class="block py-3 px-6 text-white hover:bg-gray-800">YouTube</a>
+            <a href="index.html#contact" class="block py-3 px-6 text-white hover:bg-gray-800">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="blog" class="hero-gradient-bg pt-40 pb-24">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight scroll-animate">From the Blog</h1>
+                <p class="mt-4 text-xl text-gray-300 scroll-animate delay-100">Insights on AI, Programming, and Content Creation</p>
+            </div>
+        </section>
+
+        <section class="py-24 bg-[#161616]">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col lg:flex-row gap-16">
+
+                    <div class="lg:w-2/3">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="bg-gray-800/50 rounded-2xl overflow-hidden group scroll-animate">
+                                <img src="https://placehold.co/600x400/111/FFFFFF?text=Blog+1" alt="Blog Post" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300">
+                                <div class="p-6">
+                                    <p class="text-sm text-gray-400">Oct 17, 2025</p>
+                                    <h3 class="text-xl font-bold text-white mt-2 group-hover:text-purple-400 transition-colors">
+                                        <a href="#">The Future of Edge AI</a>
+                                    </h3>
+                                    <p class="mt-2 text-gray-400 text-sm">Discover how running AI models directly on devices is changing the tech landscape.</p>
+                                    <a href="#" class="inline-block mt-4 font-semibold text-purple-400">Read More <i class="fas fa-arrow-right ml-1"></i></a>
+                                </div>
+                            </div>
+                            <div class="bg-gray-800/50 rounded-2xl overflow-hidden group scroll-animate delay-100">
+                                <img src="https://placehold.co/600x400/111/FFFFFF?text=Blog+2" alt="Blog Post" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300">
+                                <div class="p-6">
+                                    <p class="text-sm text-gray-400">Oct 12, 2025</p>
+                                    <h3 class="text-xl font-bold text-white mt-2 group-hover:text-purple-400 transition-colors">
+                                        <a href="#">Writing a Technical Book: My Journey</a>
+                                    </h3>
+                                     <p class="mt-2 text-gray-400 text-sm">From the initial idea to publishing, here are the lessons I learned along the way.</p>
+                                    <a href="#" class="inline-block mt-4 font-semibold text-purple-400">Read More <i class="fas fa-arrow-right ml-1"></i></a>
+                                </div>
+                            </div>
+                            <div class="bg-gray-800/50 rounded-2xl overflow-hidden group scroll-animate">
+                                <img src="https://placehold.co/600x400/111/FFFFFF?text=Blog+3" alt="Blog Post" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300">
+                                <div class="p-6">
+                                    <p class="text-sm text-gray-400">Oct 5, 2025</p>
+                                    <h3 class="text-xl font-bold text-white mt-2 group-hover:text-purple-400 transition-colors">
+                                        <a href="#">5 Tips for Better Tech YouTube Videos</a>
+                                    </h3>
+                                    <p class="mt-2 text-gray-400 text-sm">Engage your audience and create high-quality content with these practical tips.</p>
+                                    <a href="#" class="inline-block mt-4 font-semibold text-purple-400">Read More <i class="fas fa-arrow-right ml-1"></i></a>
+                                </div>
+                            </div>
+                            <div class="bg-gray-800/50 rounded-2xl overflow-hidden group scroll-animate delay-100">
+                                <img src="https://placehold.co/600x400/111/FFFFFF?text=Blog+4" alt="Blog Post" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300">
+                                <div class="p-6">
+                                    <p class="text-sm text-gray-400">Sep 28, 2025</p>
+                                    <h3 class="text-xl font-bold text-white mt-2 group-hover:text-purple-400 transition-colors">
+                                        <a href="#">A Deep Dive into Transformer Models</a>
+                                    </h3>
+                                    <p class="mt-2 text-gray-400 text-sm">Understanding the architecture that powers modern large language models like GPT.</p>
+                                    <a href="#" class="inline-block mt-4 font-semibold text-purple-400">Read More <i class="fas fa-arrow-right ml-1"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-16 flex justify-center items-center space-x-2 scroll-animate">
+                            <a href="#" class="px-4 py-2 bg-gray-800/50 text-white rounded-lg hover:bg-purple-600 transition-colors">
+                                <i class="fas fa-chevron-left"></i>
+                            </a>
+                            <a href="#" class="px-4 py-2 bg-purple-600 text-white rounded-lg">1</a>
+                            <a href="#" class="px-4 py-2 bg-gray-800/50 text-white rounded-lg hover:bg-purple-600 transition-colors">2</a>
+                            <a href="#" class="px-4 py-2 bg-gray-800/50 text-white rounded-lg hover:bg-purple-600 transition-colors">3</a>
+                            <a href="#" class="px-4 py-2 bg-gray-800/50 text-white rounded-lg hover:bg-purple-600 transition-colors">
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <aside class="lg:w-1/3 space-y-8 lg:mt-0 mt-12">
+                        <div class="bg-gray-800/50 rounded-2xl p-6 scroll-animate">
+                            <h3 class="text-white font-bold text-xl mb-4">Search</h3>
+                            <div class="relative">
+                                <input type="text" placeholder="Search..." class="w-full bg-gray-700/50 border border-gray-600 rounded-lg p-3 pr-10 text-white focus:outline-none focus:ring-2 focus:ring-purple-500">
+                                <i class="fas fa-search absolute right-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-800/50 rounded-2xl p-6 scroll-animate delay-100">
+                            <h3 class="text-white font-bold text-xl mb-4">Categories</h3>
+                            <ul class="space-y-3">
+                                <li><a href="#" class="flex justify-between items-center hover:text-purple-400 transition-colors"><span>AI & Machine Learning</span> <span class="text-xs bg-gray-700 px-2 py-1 rounded">12</span></a></li>
+                                <li><a href="#" class="flex justify-between items-center hover:text-purple-400 transition-colors"><span>Software Development</span> <span class="text-xs bg-gray-700 px-2 py-1 rounded">8</span></a></li>
+                                <li><a href="#" class="flex justify-between items-center hover:text-purple-400 transition-colors"><span>Content Creation</span> <span class="text-xs bg-gray-700 px-2 py-1 rounded">5</span></a></li>
+                                <li><a href="#" class="flex justify-between items-center hover:text-purple-400 transition-colors"><span>Book Writing</span> <span class="text-xs bg-gray-700 px-2 py-1 rounded">3</span></a></li>
+                            </ul>
+                        </div>
+                         <div class="bg-gray-800/50 rounded-2xl p-6 scroll-animate delay-200">
+                            <h3 class="text-white font-bold text-xl mb-4">Recent Posts</h3>
+                             <ul class="space-y-4">
+                                <li class="flex items-start space-x-4">
+                                    <img src="https://placehold.co/100x100/111/FFFFFF?text=Post" alt="Recent Post" class="w-16 h-16 object-cover rounded-lg">
+                                    <div>
+                                        <a href="#" class="font-semibold text-white leading-tight hover:text-purple-400 transition-colors">The Future of Edge AI</a>
+                                        <p class="text-xs text-gray-400 mt-1">Oct 17, 2025</p>
+                                    </div>
+                                </li>
+                                 <li class="flex items-start space-x-4">
+                                    <img src="https://placehold.co/100x100/111/FFFFFF?text=Post" alt="Recent Post" class="w-16 h-16 object-cover rounded-lg">
+                                    <div>
+                                        <a href="#" class="font-semibold text-white leading-tight hover:text-purple-400 transition-colors">Writing a Technical Book: My Journey</a>
+                                        <p class="text-xs text-gray-400 mt-1">Oct 12, 2025</p>
+                                    </div>
+                                </li>
+                             </ul>
+                        </div>
+                    </aside>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-[#0c0c0c] py-8">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="https://www.youtube.com/@thinkwithpervez" target="_blank"
+                    class="text-gray-400 hover:text-purple-400 transition-colors text-xl"><i
+                        class="fab fa-youtube"></i></a>
+                <a href="https://www.linkedin.com/in/thinkwithpervez/" target="_blank"
+                    class="text-gray-400 hover:text-purple-400 transition-colors text-xl"><i
+                        class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/pervez72" target="_blank"
+                    class="text-gray-400 hover:text-purple-400 transition-colors text-xl"><i
+                        class="fab fa-github"></i></a>
+                <a href="#" class="text-gray-400 hover:text-purple-400 transition-colors text-xl"><i
+                        class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-gray-400 hover:text-purple-400 transition-colors text-xl"><i
+                        class="fab fa-x-twitter"></i></a>
+            </div>
+            <p>&copy; 2025 Pervez Hasan. All Rights Reserved.</p>
+            <p>Developed by <a href="https://asuxai.com" class="text-purple-400 hover:underline">AsuX AI</a></p>
+        </div>
+    </footer>
+
+    <button id="scrollTopBtn"><i class="fas fa-arrow-up"></i></button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const header = document.getElementById('header');
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+            // --- Sticky Header Shadow on Scroll ---
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('shadow-lg');
+                } else {
+                    header.classList.remove('shadow-lg');
+                }
+            });
+
+            // --- Mobile Menu Toggle ---
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // --- Scroll to Top Button ---
+            window.onscroll = function () {
+                if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                    scrollTopBtn.style.display = "flex";
+                } else {
+                    scrollTopBtn.style.display = "none";
+                }
+            };
+            scrollTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // --- Scroll Reveal Animation ---
+            const scrollElements = document.querySelectorAll('.scroll-animate, .scroll-animate-left');
+            const elementObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    } else {
+                        // To re-animate every time it's scrolled to
+                        entry.target.classList.remove('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            scrollElements.forEach(el => {
+                elementObserver.observe(el);
+            });
+        });
+    </script>
+</body>
+
+</html>

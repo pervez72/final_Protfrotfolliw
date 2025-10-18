@@ -153,27 +153,6 @@
             width: 100%;
             height: 100%;
         }
-        
-        /* --- Social Icon Color Styles --- */
-        .social-icon-list a {
-            display: inline-block; /* Ensures transform works correctly */
-            transition: transform 0.2s ease-in-out;
-        }
-        .social-icon-list a:hover {
-            transform: scale(1.15);
-        }
-        .icon-youtube { color: #FF0000; }
-        .icon-linkedin { color: #0A66C2; }
-        .icon-github { color: #FFFFFF; } /* White is standard for dark backgrounds */
-        .icon-facebook { color: #1877F2; }
-        .icon-twitter { color: #FFFFFF; } /* White for the 'X' logo */
-        .icon-leetcode {
-            filter: invert(1) opacity(0.85); /* Makes the black PNG a visible white/gray */
-            transition: filter 0.2s ease-in-out, transform 0.2s ease-in-out;
-        }
-        .social-icon-list a:hover .icon-leetcode {
-            filter: invert(1) opacity(1); /* Makes it fully white on hover */
-        }
     </style>
 </head>
 
@@ -187,10 +166,11 @@
                 Pervez
             </a>
             <nav class="hidden lg:flex space-x-1 items-center bg-gray-800/50 p-2 rounded-full">
+                <a href="#home" class="nav-link-item px-4 py-2 text-white rounded-full">Home</a>
                 <a href="#about" class="nav-link-item px-4 py-2 text-white rounded-full">About</a>
                 <a href="#portfolio" class="nav-link-item px-4 py-2 text-white rounded-full">Portfolio</a>
                 <a href="#courses" class="nav-link-item px-4 py-2 text-white rounded-full">Courses</a>
-                <a href="#blog" class="nav-link-item px-4 py-2 text-white rounded-full">Blog</a>
+                <a href="blog.html" class="nav-link-item px-4 py-2 text-white rounded-full">Blog</a>
                 <a href="#youtube" class="nav-link-item px-4 py-2 text-white rounded-full">YouTube</a>
                 <a href="#contact" class="nav-link-item px-4 py-2 text-white rounded-full btn-primary">Contact</a>
             </nav>
@@ -199,10 +179,11 @@
             </button>
         </div>
         <div id="mobile-menu" class="hidden lg:hidden bg-gray-900">
+            <a href="#home" class="block py-3 px-6 text-white hover:bg-gray-800">Home</a>
             <a href="#about" class="block py-3 px-6 text-white hover:bg-gray-800">About</a>
             <a href="#portfolio" class="block py-3 px-6 text-white hover:bg-gray-800">Portfolio</a>
             <a href="#courses" class="block py-3 px-6 text-white hover:bg-gray-800">Courses</a>
-            <a href="#blog" class="block py-3 px-6 text-white hover:bg-gray-800">Blog</a>
+            <a href="blog.html" class="block py-3 px-6 text-white hover:bg-gray-800">Blog</a>
             <a href="#youtube" class="block py-3 px-6 text-white hover:bg-gray-800">YouTube</a>
             <a href="#contact" class="block py-3 px-6 text-white hover:bg-gray-800">Contact</a>
         </div>
@@ -224,7 +205,7 @@
                             Hello!</a>
                         <div class="mt-12 flex justify-center lg:justify-start space-x-12 scroll-animate delay-400">
                             <div>
-                                <p class="text-4xl font-bold text-white">1+</p>
+                                <p class="text-4xl font-bold text-white">5+</p>
                                 <p class="text-gray-400">Years Experience</p>
                             </div>
                             <div>
@@ -236,27 +217,20 @@
                                 <p class="text-gray-400">YouTube Subscribers</p>
                             </div>
                         </div>
-                        <div
-                            class="mt-12 flex justify-center lg:justify-start items-center space-x-6 scroll-animate delay-400 social-icon-list">
-                            <a href="https://www.youtube.com/@thinkwithpervez" target="_blank" class="text-2xl">
-                                <i class="fab fa-youtube icon-youtube"></i>
-                            </a>
-                            <a href="https://www.linkedin.com/in/thinkwithpervez/" target="_blank" class="text-2xl">
-                                <i class="fab fa-linkedin-in icon-linkedin"></i>
-                            </a>
-                            <a href="https://github.com/pervez72" target="_blank" class="text-2xl">
-                                <i class="fab fa-github icon-github"></i>
-                            </a>
-                            <a href="https://leetcode.com/u/pervez25/" target="_blank" title="My LeetCode Profile">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" alt="LeetCode"
-                                    class="w-7 h-7 icon-leetcode" />
-                            </a>
-                            <a href="#" class="text-2xl">
-                                <i class="fab fa-facebook-f icon-facebook"></i>
-                            </a>
-                            <a href="#" class="text-2xl">
-                                <i class="fab fa-x-twitter icon-twitter"></i>
-                            </a>
+                        <div class="mt-12 flex justify-center lg:justify-start space-x-6 scroll-animate delay-400">
+                            <a href="https://www.youtube.com/@thinkwithpervez" target="_blank"
+                                class="text-gray-400 hover:text-purple-400 transition-colors text-2xl"><i
+                                    class="fab fa-youtube"></i></a>
+                            <a href="https://www.linkedin.com/in/thinkwithpervez/" target="_blank"
+                                class="text-gray-400 hover:text-purple-400 transition-colors text-2xl"><i
+                                    class="fab fa-linkedin-in"></i></a>
+                            <a href="https://github.com/pervez72" target="_blank"
+                                class="text-gray-400 hover:text-purple-400 transition-colors text-2xl"><i
+                                    class="fab fa-github"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-purple-400 transition-colors text-2xl"><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-purple-400 transition-colors text-2xl"><i
+                                    class="fab fa-x-twitter"></i></a>
                         </div>
                     </div>
                     <div class="lg:w-1/2 mt-10 lg:mt-0 scroll-animate delay-200">
@@ -443,8 +417,9 @@
                         <div class="p-6">
                             <p class="text-sm text-gray-400">Oct 17, 2025</p>
                             <h3 class="text-xl font-bold text-white mt-2 group-hover:text-purple-400 transition-colors">
-                                The Future of Edge AI</h3>
-                            <a href="#" class="inline-block mt-4 font-semibold text-purple-400">Read More</a>
+                                <a href="blog.html">The Future of Edge AI</a>
+                            </h3>
+                            <a href="blog.html" class="inline-block mt-4 font-semibold text-purple-400">Read More</a>
                         </div>
                     </div>
                     <div class="bg-gray-800/50 rounded-2xl overflow-hidden group scroll-animate delay-100">
@@ -453,8 +428,9 @@
                         <div class="p-6">
                             <p class="text-sm text-gray-400">Oct 12, 2025</p>
                             <h3 class="text-xl font-bold text-white mt-2 group-hover:text-purple-400 transition-colors">
-                                Writing a Technical Book: My Journey</h3>
-                            <a href="#" class="inline-block mt-4 font-semibold text-purple-400">Read More</a>
+                                <a href="blog.html">Writing a Technical Book: My Journey</a>
+                            </h3>
+                            <a href="blog.html" class="inline-block mt-4 font-semibold text-purple-400">Read More</a>
                         </div>
                     </div>
                     <div class="bg-gray-800/50 rounded-2xl overflow-hidden group scroll-animate delay-200">
@@ -463,10 +439,15 @@
                         <div class="p-6">
                             <p class="text-sm text-gray-400">Oct 5, 2025</p>
                             <h3 class="text-xl font-bold text-white mt-2 group-hover:text-purple-400 transition-colors">
-                                5 Tips for Better Tech YouTube Videos</h3>
-                            <a href="#" class="inline-block mt-4 font-semibold text-purple-400">Read More</a>
+                                <a href="blog.html">5 Tips for Better Tech YouTube Videos</a>
+                            </h3>
+                            <a href="blog.html" class="inline-block mt-4 font-semibold text-purple-400">Read More</a>
                         </div>
                     </div>
+                </div>
+                <div class="text-center mt-12 scroll-animate delay-300">
+                    <a href="blog.html" class="btn-primary text-white font-bold py-3 px-8 rounded-full">View All
+                        Posts</a>
                 </div>
             </div>
         </section>
@@ -551,26 +532,20 @@
                                 <p>+880 1304622164</p>
                             </div>
                         </div>
-                        <div class="mt-8 flex items-start items-center space-x-6 social-icon-list">
-                            <a href="https://www.youtube.com/@thinkwithpervez" target="_blank" class="text-2xl">
-                                <i class="fab fa-youtube icon-youtube"></i>
-                            </a>
-                            <a href="https://www.linkedin.com/in/thinkwithpervez/" target="_blank" class="text-2xl">
-                                <i class="fab fa-linkedin-in icon-linkedin"></i>
-                            </a>
-                            <a href="https://github.com/pervez72" target="_blank" class="text-2xl">
-                                <i class="fab fa-github icon-github"></i>
-                            </a>
-                            <a href="https://leetcode.com/u/pervez25/" target="_blank" title="My LeetCode Profile">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" alt="LeetCode"
-                                    class="w-7 h-7 icon-leetcode" />
-                            </a>
-                            <a href="#" class="text-2xl">
-                                <i class="fab fa-facebook-f icon-facebook"></i>
-                            </a>
-                            <a href="#" class="text-2xl">
-                                <i class="fab fa-x-twitter icon-twitter"></i>
-                            </a>
+                        <div class="mt-8 flex items-start space-x-6">
+                            <a href="https://www.youtube.com/@thinkwithpervez" target="_blank"
+                                class="text-gray-400 hover:text-purple-400 transition-colors text-2xl"><i
+                                    class="fab fa-youtube"></i></a>
+                            <a href="https://www.linkedin.com/in/thinkwithpervez/" target="_blank"
+                                class="text-gray-400 hover:text-purple-400 transition-colors text-2xl"><i
+                                    class="fab fa-linkedin-in"></i></a>
+                            <a href="https://github.com/pervez72" target="_blank"
+                                class="text-gray-400 hover:text-purple-400 transition-colors text-2xl"><i
+                                    class="fab fa-github"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-purple-400 transition-colors text-2xl"><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-purple-400 transition-colors text-2xl"><i
+                                    class="fab fa-x-twitter"></i></a>
                         </div>
                     </div>
                     <form class="lg:w-2/3 space-y-6 scroll-animate delay-100">
@@ -594,26 +569,20 @@
 
     <footer class="bg-[#0c0c0c] py-8">
         <div class="container mx-auto px-6 text-center text-gray-400">
-            <div class="flex justify-center items-center space-x-6 mb-4 social-icon-list">
-                <a href="https://www.youtube.com/@thinkwithpervez" target="_blank" class="text-xl">
-                    <i class="fab fa-youtube icon-youtube"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/thinkwithpervez/" target="_blank" class="text-xl">
-                    <i class="fab fa-linkedin-in icon-linkedin"></i>
-                </a>
-                <a href="https://github.com/pervez72" target="_blank" class="text-xl">
-                    <i class="fab fa-github icon-github"></i>
-                </a>
-                <a href="https://leetcode.com/u/pervez25/" target="_blank" title="My LeetCode Profile">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" alt="LeetCode"
-                        class="w-6 h-6 icon-leetcode" />
-                </a>
-                <a href="#" class="text-xl">
-                    <i class="fab fa-facebook-f icon-facebook"></i>
-                </a>
-                <a href="#" class="text-xl">
-                    <i class="fab fa-x-twitter icon-twitter"></i>
-                </a>
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="https://www.youtube.com/@thinkwithpervez" target="_blank"
+                    class="text-gray-400 hover:text-purple-400 transition-colors text-xl"><i
+                        class="fab fa-youtube"></i></a>
+                <a href="https://www.linkedin.com/in/thinkwithpervez/" target="_blank"
+                    class="text-gray-400 hover:text-purple-400 transition-colors text-xl"><i
+                        class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/pervez72" target="_blank"
+                    class="text-gray-400 hover:text-purple-400 transition-colors text-xl"><i
+                        class="fab fa-github"></i></a>
+                <a href="#" class="text-gray-400 hover:text-purple-400 transition-colors text-xl"><i
+                        class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-gray-400 hover:text-purple-400 transition-colors text-xl"><i
+                        class="fab fa-x-twitter"></i></a>
             </div>
             <p>&copy; 2025 Pervez Hasan. All Rights Reserved.</p>
             <p>Developed by <a href="https://asuxai.com" class="text-purple-400 hover:underline">AsuX AI</a></p>
@@ -653,7 +622,7 @@
                         navLinks.forEach(link => {
                             link.classList.remove('active');
                             const href = link.getAttribute('href');
-                            if (href === `#${id}`) {
+                            if (href.endsWith(`#${id}`)) { // check for hash at the end
                                 link.classList.add('active');
                             }
                         });
