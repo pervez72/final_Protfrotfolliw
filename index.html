@@ -224,15 +224,15 @@
                             Hello!</a>
                         <div class="mt-12 flex justify-center lg:justify-start space-x-12 scroll-animate delay-400">
                             <div>
-                                <p class="text-4xl font-bold text-white">1+</p>
+                                <p id="experience-count" class="text-4xl font-bold text-white">0+</p>
                                 <p class="text-gray-400">Years Experience</p>
                             </div>
                             <div>
-                                <p class="text-4xl font-bold text-white">100+</p>
+                                <p id="projects-count" class="text-4xl font-bold text-white">0+</p>
                                 <p class="text-gray-400">Projects Completed</p>
                             </div>
                             <div>
-                                <p class="text-4xl font-bold text-white">50K+</p>
+                                <p id="youtube-count" class="text-4xl font-bold text-white">0K+</p>
                                 <p class="text-gray-400">YouTube Subscribers</p>
                             </div>
                         </div>
@@ -695,6 +695,44 @@
             scrollElements.forEach(el => {
                 elementObserver.observe(el);
             });
+
+            // --- Counter Up Animation ---
+            const animateCounter = (element, end, duration, suffix = '') => {
+                let start = 0;
+                let startTime = null;
+
+                function animationStep(timestamp) {
+                    if (!startTime) startTime = timestamp;
+                    const progress = Math.min((timestamp - startTime) / duration, 1);
+                    const currentValue = Math.floor(progress * (end - start) + start);
+                    element.textContent = currentValue + suffix;
+                    if (progress < 1) {
+                        window.requestAnimationFrame(animationStep);
+                    }
+                }
+                window.requestAnimationFrame(animationStep);
+            };
+
+            const countersContainer = document.querySelector('#home .space-x-12');
+            const counterObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const expCounter = document.getElementById('experience-count');
+                        const projCounter = document.getElementById('projects-count');
+                        const subCounter = document.getElementById('youtube-count');
+
+                        animateCounter(expCounter, 5, 2000, '+');
+                        animateCounter(projCounter, 100, 2000, '+');
+                        animateCounter(subCounter, 50, 2000, 'K+');
+                        
+                        observer.unobserve(entry.target); // Animate only once
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            if (countersContainer) {
+                counterObserver.observe(countersContainer);
+            }
         });
     </script>
 </body>
